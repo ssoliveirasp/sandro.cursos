@@ -15,56 +15,82 @@
   body{margin:0; background:var(--paper); color:var(--ink); font-family:'Public Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
   h1,h2{font-family:'Fraunces', Georgia, serif; color:var(--ink); text-wrap:balance; margin:0 0 12px;}
   a{color:var(--navy-3);}
+
+  /* Skip link — mesmo padrão do curso-angular.html (regras-gerais.md, item 3) */
+  .skip-link{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1300;
+    background:var(--navy); color:#fff; padding:12px 20px; border-radius:0 0 8px 0; font-size:14px; font-weight:600; text-decoration:none;}
+  .skip-link:focus{left:0; top:0; width:auto; height:auto; overflow:visible;}
+
   header.hero{background:var(--navy); color:#f4f6fb; padding:56px 24px 44px;}
   .wrap{max-width:920px; margin:0 auto;}
   header.hero .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:10px;}
   header.hero h1{font-size:clamp(28px, 4vw, 40px); color:#fff; margin-bottom:14px;}
   header.hero p{color:#c9d0e2; font-size:16px; line-height:1.6; max-width:640px; margin:0;}
+  header.hero .site-link{display:inline-block; margin-top:14px; color:var(--gold-soft); font-weight:600;}
   main{padding:44px 24px 80px;}
   .cursos-card{background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(19,26,43,.06);}
-  table{width:100%; border-collapse:collapse; font-size:15px;}
-  thead th{text-align:left; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; padding:16px 20px; border-bottom:1px solid var(--line); background:#f6f8fb;}
+
+  /* Tabela larga rola só dentro do próprio container — nunca a página inteira
+     (regras-gerais.md, .table-wrap + item 8 do curso-angular.html) */
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  table{width:100%; border-collapse:collapse; font-size:15px; min-width:520px;}
+  thead th{text-align:left; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; padding:16px 20px; border-bottom:1px solid var(--line); background:#f6f8fb; white-space:nowrap;}
   tbody td{padding:18px 20px; border-bottom:1px solid var(--line); vertical-align:top;}
   tbody tr:last-child td{border-bottom:none;}
   tbody tr:hover{background:#f9fafc;}
-  .curso-nome{font-weight:700; color:var(--ink); font-size:16px; display:block; margin-bottom:3px;}
+  .curso-nome{font-weight:700; color:var(--ink); font-size:16px; display:block; margin-bottom:3px; text-decoration:none;}
+  .curso-nome:hover{text-decoration:underline;}
   .curso-desc{color:var(--ink-soft); font-size:13.5px; line-height:1.5;}
-  .badge{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.03em; padding:4px 10px; border-radius:999px;}
+  .badge{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.03em; padding:4px 10px; border-radius:999px; white-space:nowrap;}
   .badge--publicado{background:var(--teal-soft); color:var(--teal);}
   .badge--em-breve{background:var(--gold-soft); color:#93701f;}
   .acessar{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:14px; text-decoration:none; color:var(--navy-3); white-space:nowrap;}
   .acessar:hover{text-decoration:underline;}
   footer{max-width:920px; margin:0 auto; padding:0 24px 40px; color:var(--ink-faint); font-size:13px;}
+
+  /* Alvos de toque >= 44px (WCAG 2.2), só no viewport mobile de verdade —
+     mesmo critério e mesmo breakpoint do curso-angular.html (regras-gerais.md, item 4) */
+  @media (max-width:820px){
+    body{overflow-x:hidden;}
+    header.hero{padding:40px 20px 32px;}
+    main{padding:32px 16px 60px;}
+    .acessar{min-height:44px; padding:10px 4px;}
+    .curso-nome{display:inline-block; min-height:44px; padding:6px 0;}
+    tbody td{padding:16px 16px;}
+  }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Sandro Souza</p>
     <h1>Cursos de front-end</h1>
     <p>Material de estudo próprio, cenário de portal corporativo bancário — módulos, ferramentas de mercado e central de erros reais por tecnologia.</p>
-    <p style="margin-top:14px;"><a href="https://ssoliveirasp.github.io/sandro.cursos/" style="color:#f4e6c8;">ssoliveirasp.github.io/sandro.cursos</a></p>
+    <a class="site-link" href="https://ssoliveirasp.github.io/sandro.cursos/">ssoliveirasp.github.io/sandro.cursos</a>
   </div>
 </header>
-<main>
+<main id="main-content" tabindex="-1">
   <div class="wrap">
     <div class="cursos-card">
-      <table>
-        <thead>
-          <tr><th>Curso</th><th>Tecnologia</th><th>Status</th><th></th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="curso-nome">Curso Angular</span>
-              <span class="curso-desc">25 módulos (fundamentos a especialista), ferramentas de mercado e central de erros reais.</span>
-            </td>
-            <td>Angular</td>
-            <td><span class="badge badge--publicado">Publicado</span></td>
-            <td><a class="acessar" href="frontend/angular/">Acessar curso &rarr;</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Curso</th><th>Tecnologia</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a class="curso-nome" href="frontend/angular/">Curso Angular</a>
+                <span class="curso-desc">25 módulos (fundamentos a especialista), ferramentas de mercado e central de erros reais.</span>
+              </td>
+              <td>Angular</td>
+              <td><span class="badge badge--publicado">Publicado</span></td>
+              <td><a class="acessar" href="frontend/angular/">Acessar curso &rarr;</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>
