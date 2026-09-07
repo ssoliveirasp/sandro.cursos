@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandro Souza — Cursos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --paper:#eef1f5; --card:#ffffff; --ink:#1a2233; --ink-soft:#4c5568; --ink-faint:#818aa0;
+    --line:#d7dce6; --navy:#131a2b; --navy-2:#1e2843; --navy-3:#2a3559; --gold:#c99a3b; --gold-soft:#f4e6c8;
+    --teal:#1f7a67; --teal-soft:#dcf0ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Public Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2{font-family:'Fraunces', Georgia, serif; color:var(--ink); text-wrap:balance; margin:0 0 12px;}
+  a{color:var(--navy-3);}
+  header.hero{background:var(--navy); color:#f4f6fb; padding:56px 24px 44px;}
+  .wrap{max-width:920px; margin:0 auto;}
+  header.hero .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:10px;}
+  header.hero h1{font-size:clamp(28px, 4vw, 40px); color:#fff; margin-bottom:14px;}
+  header.hero p{color:#c9d0e2; font-size:16px; line-height:1.6; max-width:640px; margin:0;}
+  main{padding:44px 24px 80px;}
+  .cursos-card{background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(19,26,43,.06);}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  thead th{text-align:left; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); font-weight:700; padding:16px 20px; border-bottom:1px solid var(--line); background:#f6f8fb;}
+  tbody td{padding:18px 20px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#f9fafc;}
+  .curso-nome{font-weight:700; color:var(--ink); font-size:16px; display:block; margin-bottom:3px;}
+  .curso-desc{color:var(--ink-soft); font-size:13.5px; line-height:1.5;}
+  .badge{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.03em; padding:4px 10px; border-radius:999px;}
+  .badge--publicado{background:var(--teal-soft); color:var(--teal);}
+  .badge--em-breve{background:var(--gold-soft); color:#93701f;}
+  .acessar{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:14px; text-decoration:none; color:var(--navy-3); white-space:nowrap;}
+  .acessar:hover{text-decoration:underline;}
+  footer{max-width:920px; margin:0 auto; padding:0 24px 40px; color:var(--ink-faint); font-size:13px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Sandro Souza</p>
+    <h1>Cursos de front-end</h1>
+    <p>Material de estudo próprio, cenário de portal corporativo bancário — módulos, ferramentas de mercado e central de erros reais por tecnologia.</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="cursos-card">
+      <table>
+        <thead>
+          <tr><th>Curso</th><th>Tecnologia</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="curso-nome">Curso Angular</span>
+              <span class="curso-desc">25 módulos (fundamentos a especialista), ferramentas de mercado e central de erros reais.</span>
+            </td>
+            <td>Angular</td>
+            <td><span class="badge badge--publicado">Publicado</span></td>
+            <td><a class="acessar" href="frontend/angular/">Acessar curso &rarr;</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<footer>&copy; Sandro Souza.</footer>
+</body>
+</html>
